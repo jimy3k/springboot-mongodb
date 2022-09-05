@@ -81,24 +81,24 @@ class SpringbootMongodbApplicationTests {
         System.out.println("=========================查询所有文档========================");
         list.forEach(System.out::println);
 
-        List<Employee> list1 = mongoTemplate.find(new Query(Criteria.where("salary").gte(5000).lte(12000)),Employee.class);
+        List<Employee> list1 = mongoTemplate.find(new Query(Criteria.where("salary").gte(5000).lte(12000)), Employee.class);
         System.out.println("\n==============查询符合条件文档(5000<=salary<=12000 )================");
         list1.forEach(System.out::println);
 
-        List<Employee> list2 = mongoTemplate.find(new Query(Criteria.where("salary").gte(5000).lte(12000)),Employee.class);
+        List<Employee> list2 = mongoTemplate.find(new Query(Criteria.where("salary").gte(5000).lte(12000)), Employee.class);
         System.out.println("\n==============查询符合条件文档(5000<=salary<=12000 )================");
         list2.forEach(System.out::println);
 
 
-        List<Employee> list3 = mongoTemplate.find(new Query(Criteria.where("name").regex("张")),Employee.class);
+        List<Employee> list3 = mongoTemplate.find(new Query(Criteria.where("name").regex("张")), Employee.class);
         System.out.println("\n==============模糊查询符合条件文档(name包含'张')================");
         list3.forEach(System.out::println);
 
-        Employee one = mongoTemplate.findOne(new Query(),Employee.class);
+        Employee one = mongoTemplate.findOne(new Query(), Employee.class);
         System.out.println("\n=========================查询第一个符合条件文档========================");
         System.out.println(one);
 
-        Employee employee = mongoTemplate.findById(3,Employee.class);
+        Employee employee = mongoTemplate.findById(3, Employee.class);
         System.out.println("\n=========================根据_id查询文档========================");
         System.out.println(employee);
     }
@@ -114,7 +114,7 @@ class SpringbootMongodbApplicationTests {
         String json = "{$and:[{age:{$gte:25}},{salary:{$gte:4000}}]}";
         Query query = new BasicQuery(json);
 
-        List<Employee> list = mongoTemplate.find(query,Employee.class);   //mongoTemplate.find(new Query(),Employee.class);  无条件查询，等同findAll
+        List<Employee> list = mongoTemplate.find(query, Employee.class);   //mongoTemplate.find(new Query(),Employee.class);  无条件查询，等同findAll
         System.out.println("=========================查询符合条件所有文档========================");
         list.forEach(System.out::println);
 

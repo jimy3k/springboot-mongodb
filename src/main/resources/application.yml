@@ -1,0 +1,10 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://jimy3k:jimy3k0519@192.168.10.205:37017/db1?authSource=admin
+#      database: db1
+#      host: 192.168.10.205
+#      port: 37017
+#      username: jimy3k
+#      password: jimy3k0519
+#      authentication-database: admin
